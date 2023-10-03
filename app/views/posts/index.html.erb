@@ -1,0 +1,12 @@
+<h1>This is Ruby on Rails</h1>
+<p>This is the homepage for this web.</p>
+<p>From index html erb file</p>
+
+<%= link_to 'New Post', new_post_path %>
+<% @posts.each do |post| %>
+  <h2><%= post.caption %></h2>
+  <%= image_tag post.image.url if post.image.present? %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <%= link_to 'Like', like_post_path(post), method: :put %>
+  <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
